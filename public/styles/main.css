@@ -1,0 +1,48 @@
+body{
+    background-image: url("/image/bg-img.jpg");
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.container{
+
+    margin-top: 80px;
+    /* background-position: center; */
+    
+}
+.body-container{
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+.Todo{
+    display: inline;
+    padding: 2px;
+}
+.getInput{
+    border: none;
+    background: none;
+    border-bottom: 1px solid green;
+    outline: none;
+    padding: 5px;
+    width: 260px;
+}
+.addBtn{
+    padding: 5px;
+    padding-inline: 10px;
+    background-color: rgb(101, 183, 123);
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+.deleteTodo{
+    cursor: pointer;
+}
+.title{
+    background-color: rgb(62, 164, 69);
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+}
