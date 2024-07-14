@@ -3,25 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/styles/main.css">
     <title>Todo List</title>
 </head>
 <body>
+    
     <div class="container">
-        <div class="title">
-            <h1>Todo List</h1>
+    <div class="title">
+        <h1>Todo List</h1>
+    </div>
+
+    <% items.forEach(d => { %>
+       
+    
+        <div class="body-container">
+            <form action="/delete" method="post" class="Delform">
+                 <input type="checkbox" class="deleteTodo" name="" id="">
+            </form>
+
+            <p class="Todo" id="title<%= d.id %>" ><%= d.title %></p>
+            
+            <form action="/edit" method="post" class="editForm">
+                <input  type="hidden" name="UpdatedId" value="<%= d.id %>">
+                <input id="input<%= d.id %>" name="Updatedtitle" type="text" class="getInput" value="<%= d.title %>" autofocus="true" hidden="true">
+                <button id="done<%= d.id %>" type="submit" onclick="" class="save-btn" hidden ><i class='bx bx-check'></i></button>
+            </form>
+            <button class="edit-btn" id="edit<%= d.id %>" onclick="handler('<%= d.id %>')"><i class='bx bx-edit-alt'></i></button>
         </div>
 
-        <div class="body-container">
-            <input type="checkbox" class="deleteTodo" name="" id="">
-            <p class="Todo">Javascript</p>
-            <a href="">Edit</a>
-        </div>
+        <% }) %>
 
         <div class="userInput">
-            <input type="text" class="getInput">
-            <button type="submit" class="addBtn">+</button>
+            <form action="/add" method="post">
+                <input type="text" class="getInput" name="title">
+                <button type="submit" class="addBtn">+</button>
+            </form>
         </div>
     </div>
+    <script>
+        function handler(id) {
+            document.getElementById("title"+ id).classList.add('hide');
+            document.getElementById("edit"+ id).setAttribute("hidden", true);
+            document.getElementById("done"+ id).removeAttribute("hidden");
+            document.getElementById("input"+ id).removeAttribute("hidden");
+            
+
+        }
+    </script>
 </body>
 </html>
