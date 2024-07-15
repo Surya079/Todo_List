@@ -3,6 +3,7 @@ body{
     background-size: cover;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
 }
@@ -14,7 +15,7 @@ body{
 }
 .body-container{
     padding: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-bottom: 10px;
 }
 .Todo{
@@ -44,7 +45,8 @@ body{
     background-color: rgb(62, 164, 69);
     padding: 10px;
     margin-bottom: 10px;
-    width: 300px;
+    text-align: center;
+
 }
 .editForm,.Delform{
     display: inline-block;
@@ -58,4 +60,8 @@ body{
 }
 .hide{
     display: none;
+}
+.date{
+    /* margin-left: 150px; */
+    float: right;
 }

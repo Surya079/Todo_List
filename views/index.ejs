@@ -8,18 +8,18 @@
     <title>Todo List</title>
 </head>
 <body>
-    
-    <div class="container">
     <div class="title">
         <h1>Todo List</h1>
-    </div>
+    </div> 
+    <div class="container">
+    
 
     <% items.forEach(d => { %>
        
     
         <div class="body-container">
             <form action="/delete" method="post" class="Delform">
-                 <input type="checkbox" class="deleteTodo" name="" id="">
+                 <input type="checkbox" onchange="this.form.submit()" class="deleteTodo" name="deleteId" value="<%= d.id %>">
             </form>
 
             <p class="Todo" id="title<%= d.id %>" ><%= d.title %></p>
@@ -30,14 +30,16 @@
                 <button id="done<%= d.id %>" type="submit" onclick="" class="save-btn" hidden ><i class='bx bx-check'></i></button>
             </form>
             <button class="edit-btn" id="edit<%= d.id %>" onclick="handler('<%= d.id %>')"><i class='bx bx-edit-alt'></i></button>
+            
+            <small class="date" id="date<%= d.id %>"><%= d.curdate %></small>
         </div>
 
         <% }) %>
 
         <div class="userInput">
             <form action="/add" method="post">
-                <input type="text" class="getInput" name="title">
-                <button type="submit" class="addBtn">+</button>
+                <input type="text" required  class="getInput" name="title">
+                <button type="submit" class="addBtn">Add</button>
             </form>
         </div>
     </div>
@@ -45,6 +47,7 @@
         function handler(id) {
             document.getElementById("title"+ id).classList.add('hide');
             document.getElementById("edit"+ id).setAttribute("hidden", true);
+            document.getElementById("date"+ id).setAttribute("hidden", true);
             document.getElementById("done"+ id).removeAttribute("hidden");
             document.getElementById("input"+ id).removeAttribute("hidden");
             
